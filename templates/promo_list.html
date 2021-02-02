@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Promotions at Online Casinos (2020){% endblock title %}
+{% block desc %}All promotions at the right online casinos and bookmakers. Find the best deposit bonus. Get free spins and be gambling on popular jackpot slots or blackjack.{% endblock desc %}
+{% block cann %}https://casinogoodorbad.com/promotions{% endblock cann %}
+
+{% block meta_og %}
+<meta property="og:site_name" content="casinogoodorbad.com" />
+<meta property="og:title" content="Promotions at Online Casinos (2020)" />
+<meta property="og:description" content="All promotions at the right online casinos and bookmakers. Find the best deposit bonus. Get free spins and be gambling on popular jackpot slots or blackjack." />
+<meta property="og:url" content="https://casinogoodorbad.com/promotions" />
+<meta property="og:image" content="https://casinogoodorbad.com/static/og-promo.jpg" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@pioner_vova" />
+<meta name="twitter:creator" content="@pioner_vova" />
+<meta name="twitter:title" content="Promotions at Online Casinos (2020)" />
+<meta name="twitter:description" content="All promotions at the right online casinos and bookmakers. Find the best deposit bonus. Get free spins and be gambling on popular jackpot slots or blackjack." />
+<meta name="twitter:image" content="https://casinogoodorbad.com/static/og-promo.jpg" />
+{% endblock meta_og %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/base.min.css' %}" />
+<link rel="stylesheet" href="{% static 'css/main.min.css' %}" />
+{% endblock css %}
+
+
+{% block content %}
+        <div class="main__title__promo__list"><h1 style="font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:18px;color:#373b40;">All promotions and first deposit bonuses at the best online casinos (2020)</h1>
+        <p style="font-family:'Noto Sans',sans-serif;font-size:13px">Current conditions for carrying out promotions, a list of restrictions, all the necessary information, rakeback programs for poker players. Counting cards in blackjack or playing slots hoping to win the jackpot? At casinogoodorbad.com you will always find casinos with the best promo.</p></div>
+        <div class="promo__list">
+
+            {% for promo in object_list %}
+                <div class="card__news">
+                    <div class="linkblock" onclick="location.href='{% url 'promo_detail_en' slug=promo.slug %}'">
+                        <div class="news__main__child">
+                            <div class="news__main__page__title"><a href="{% url 'promo_detail_en' slug=promo.slug %}" class="promo__list__title__h2"><h2 style="font-family: 'IBM Plex Sans', sans-serif; font-weight: 500;font-size: 14px;">{{ promo.title }}</h2></a></div>
+                        </div>
+                        <div class="news__description__main__page" style="font-family: 'Noto Sans', sans-serif; font-size: 13px;">{{ promo.description }}</div>
+                        <div class="foot__date__promo__list" style="font-family:'Noto Sans',sans-serif;font-size:12px;">
+                            {% if promo.over == "yes" %}
+                                    <span class="over__promo__list" style="font-family: Roboto, sans-serif;">is over</span>
+                            {% else %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+{% endblock content %}
+
+
+{% block script %}
+<script async src="{% static 'js/progressive-image.js' %}"></script>
+{% endblock script %}

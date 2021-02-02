@@ -1,0 +1,51 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>{% block title %}talkgamblers.com{% endblock %}</title>
+            {% block locale %}{% endblock locale %}
+            <meta name="description" content="{% block desc %}{% endblock desc %}" />
+            <link rel="canonical" href="{% block cann %}{% endblock cann %}" />
+            <link rel="preconnect" href="https://analytics.google.com/">
+            <link rel="preconnect" href="https://tagmanager.google.com/">
+            <link rel="dns-prefetch" href="https://cloudinary.com/">
+            <link rel="preload" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=Noto+Sans:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" as="style">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=Noto+Sans:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" />
+            {% block meta_og %}
+            {% endblock meta_og %}
+
+            {% block css %}
+                <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+            {% endblock css %}
+        </head>
+
+        <body>
+               <header>
+                                                <nav>
+                                                        <ul class="nav-links">
+
+                                                            <li class=""><a href="" class="logo-text bord-1"><span class="logo-circle" style="font-family: Roboto,sans-serif;font-size: 22px; font-weight: 500;">talkgamblers.com</span></a></li>
+
+
+
+                                                        </ul>
+                                                </nav>
+                                </header>
+
+
+                                <main>
+                                    <div class="grid-container">
+                                        {% block content %}
+                                        {% endblock content %}
+                                    </div>
+                                </main>
+
+
+
+                {% block script %}
+                {% endblock script %}
+        </body>
+</html>
+
