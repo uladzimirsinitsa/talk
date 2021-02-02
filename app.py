@@ -6,6 +6,7 @@ from promotions.blueprint import promotions
 from flask_sqlalchemy import SQLAlchemy
 
 
+
 app = Flask(__name__)
 
 app.config['FLASK_ADMIN_SWATCH'] = 'cerulean'

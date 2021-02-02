@@ -1,0 +1,12 @@
+git commit -m "first commit"
+git push -u origin main
+
+
+#Flask
+import model
+from app import db
+db.create_all() создаем запись таблицы
+db.session.add(переменная) добавляем запись в сессию
+db.session.commit() отравляем сессию в базу данных
+
+p = Promotion(title='First', description='desc', img='1', img_alt='2', body='ert', link_casino='link')
