@@ -1,12 +1,18 @@
-git commit -m "first commit"
+git commit -m "v.002"
 git push -u origin main
 
 
+
+pip install -r requirements.txt
+pip freeze > requirements.txt
+
 #Flask
-import model
+import models
+from models import Promotion
 from app import db
 db.create_all() создаем запись таблицы
 db.session.add(переменная) добавляем запись в сессию
 db.session.commit() отравляем сессию в базу данных
 
-p = Promotion(title='First', description='desc', img='1', img_alt='2', body='ert', link_casino='link')
+
+p2 = Promotion(title='Second', descriptp = Promotion(title='First', description='desc', img='1', img_alt='2', body='ert', link_casino='link')ion='description', img='1', img_alt='3', body='body', link_casino='link')

@@ -1,11 +1,19 @@
+from flask import Blueprint
+from flask import render_template
+import models
+from models import Promotion
 
-from flask import Blueprint, render_template
 
-promotions = Blueprint('promotions', __name__, template_folder='templates')
+promotions = Blueprint('promotions', __name__)
 
 
 @promotions.route('/')
-def list_promotions():
-    return render_template('main.html')
+def main():
+    """Home page"""
+    data = Promotion.query.all()
+    return render_template('main.html', data=data)
+
+
+
 
 
