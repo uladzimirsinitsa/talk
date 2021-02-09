@@ -1,0 +1,9 @@
+window.addEventListener && window.requestAnimationFrame && document.getElementsByClassName && window.addEventListener("load", function () {
+    function h() { f = f || setTimeout(function () { f = null; g() }, 300) } function g() { a.length && requestAnimationFrame(function () { for (var b, k, d = window.innerHeight, c = 0; c < a.length;)0 < (k = (b = a[c].getBoundingClientRect()).top) + b.height && d > k ? (l(a[c]), a[c].classList.remove("replace")) : c++; m = a.length }) } function l(b, a) {
+        var d = b && (b.getAttribute("data-href") || b.href); if (d) {
+            var c = new Image, e = b.dataset;
+            e && (e.srcset && (c.srcset = e.srcset), e.sizes && (c.sizes = e.sizes)); c.onload = function () { requestAnimationFrame(function () { d === b.href && (b.style.cursor = "default", b.addEventListener("click", function (a) { a.preventDefault() }, !1)); var a = b.querySelector && b.querySelector("img.preview"); b.insertBefore(c, a && a.nextSibling).addEventListener("animationend", function () { a && (a.alt && (c.alt = a.alt), b.removeChild(a)); c.classList.remove("reveal") }) }) }; 3 > (a = 1 + (a || 0)) && (c.onerror = function () { setTimeout(function () { l(b, a) }, 3E3 * a) });
+            c.className = "reveal"; c.src = d
+        }
+    } var m, f, a = document.getElementsByClassName("progressive replace"); window.addEventListener("scroll", h, !1); window.addEventListener("resize", h, !1); MutationObserver && (new MutationObserver(function () { a.length !== m && g() })).observe(document.body, { subtree: !0, childList: !0, attributes: !0, characterData: !0 }); g()
+}, !1);
