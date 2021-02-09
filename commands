@@ -1,4 +1,4 @@
-git commit -m "v.002"
+git commit -m "v.004"
 git push -u origin main
 
 
@@ -15,4 +15,22 @@ db.session.add(переменная) добавляем запись в сесс
 db.session.commit() отравляем сессию в базу данных
 
 
-p2 = Promotion(title='Second', descriptp = Promotion(title='First', description='desc', img='1', img_alt='2', body='ert', link_casino='link')ion='description', img='1', img_alt='3', body='body', link_casino='link')
+p42 = Promotion(title='Firtst Flasck-Apcp and!', description='decstc', img='tc1', img_alt='2ct', body='erctt', link_casino='lctink')
+p3 = Promotion(title='Third', description='desc3', img='7', img_alt='89', body='ert3', link_casino='link4')
+
+
+
+
+База данных миграция
+
+python manage.py db init фиксирует первоночальное состояние базы и приложения
+
+python manage.py db migrate создаем файл миграции
+python manage.py db upgrade применяем миграцию
+
+Вам нужны заголовки Python Development Headers для
+установки пакета py-bcrypt, необходимого в качестве
+зависимости. Если у вас Mac OS или Windows, вероятно,
+он у вас уже установлен. В противном случае ищите пакет
+python-dev для дистрибутивов на основе Debian и пакет
+python-devel для дистрибутивов на основе RedHat.

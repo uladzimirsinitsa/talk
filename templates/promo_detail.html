@@ -1,114 +1,67 @@
 {% extends 'base.html' %}
-{% load static %}
-{% load comments %}
-{% load promo-tag-en %}
 
-{% block title %}{{ promoen.title }}{% endblock %}
-{% block desc %}{{promoen.description}}{% endblock desc %}
-{% block cann %}https://casinogoodorbad.com/promotions/{{promoen.slug}}{% endblock cann %}
+
+{% block title %}{{ promotion.title }}{% endblock %}
+{% block desc %}{{ promotion.description }}{% endblock desc %}
+{% block cann %}https://talkgamblers.com/promotions/{{promotion.slug}}{% endblock cann %}
 
 {% block meta_og %}
 <meta property="og:type" content="article" />
-<meta property="og:site_name" content="casinogoodorbad.com" />
-<meta property="og:url" content="https://casinogoodorbad.com/promotions/{{promoen.slug}}" />
-<meta property="og:title" content="{{ promoen.title }} - Promotions (2020)" />
-<meta property="og:description" content="{{promoen.description}}" />
-<meta property="og:article:modified_time" content="{{promoen.date_update}}" />
-<meta property="og:image" content="https://casinogoodorbad.com/static/og-promo.jpg" />
+<meta property="og:site_name" content="talkgamblers.com" />
+<meta property="og:url" content="https://talkgamblers.com/promotions/{{promotion.slug}}" />
+<meta property="og:title" content="{{ promotion.title }} - Promotions (2020)" />
+<meta property="og:description" content="{{promotion.description}}" />
+<meta property="og:article:modified_time" content="{{promotion.created}}" />
+<meta property="og:image" content="https://talkgamblers.com/static/" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@pioner_vova" />
 <meta name="twitter:creator" content="@pioner_vova" />
-<meta name="twitter:title" content="{{ promoen.title }} - Promotions (2020)" />
-<meta name="twitter:description" content="{{promoen.description}}" />
-<meta name="twitter:image" content="https://casinogoodorbad.com/static/og-promo.jpg" />
+<meta name="twitter:title" content="{{ promotion.title }} - Promotions (2021)" />
+<meta name="twitter:description" content="{{promotion.description}}" />
+<meta name="twitter:image" content="https://talkgamblers.com/static/" />
 {% endblock meta_og %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/base.min.css' %}" />
-<link rel="stylesheet" href="{% static 'css/article-detail.min.css' %}" />
-<link rel="stylesheet" href="{% static 'css/ajaxcomments.min.css' %}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/promo-detail.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ajaxcomments.min.css') }}" />
 {% endblock css %}
+
+
 
 {% block content %}
 
-   <div class="main-content">
+    <div class="main-content">
                 <article>
                     <div class="article-detail">
 
                         <div class="article-detail-tags">
-
                         </div>
 
-                        <div class="article-detail-title"><h1 style="font-family:'IBM Plex Sans',sans-serif;font-size:19px;font-weight:500;color:#373b40;">{{ promoen.title }}</h1></div>
-                        <div class="article-detail-date" style="font-family:'Noto Sans',sans-serif;font-size:13px;">Update: {{ promoen.date_update|date:'SHORT_DATE_FORMAT'  }}
-                        {% if promo.over == "yes" %}
-                            <span class="over__promo" style="font-family:'Roboto',sans-serif;font-size:13px;">is over</span>
-                        {% else %}
-                        {% endif %}
+                        <div class="article-detail-title"><h1 style="font-family:'IBM Plex Sans',sans-serif;font-size:19px;font-weight:500;color:#373b40;">{{ promotion.title }}</h1></div>
+                        <div class="article-detail-date" style="font-family:'Noto Sans',sans-serif;font-size:13px;">Update: {{ promotion.created }}
+
                         </div>
-                        <div class="article-detail-body" style="font-family:'Noto Sans',sans-serif;color:#373b40;font-size:14px"><em>{{ promoen.description|safe }}</em><br><br>{{ promoen.body|safe }}</div>
+                        <div class="article-detail-body" style="font-family:'Noto Sans',sans-serif;color:#373b40;font-size:14px"><em>{{ promotion.description|safe }}</em><br><br>{{ promotion.body|safe }}</div>
                     </div>
+
+
                     <div class="container-article-detail-comment">
-                            <div class="child-comment" style="font-family: Roboto, sans-serif;font-size: 14px;">
-                                {% render_comment_form for object %}
-                                {% render_comment_list for object %}
-                            </div>
+
                     </div>
                 </article>
+
                 <aside>
-                    {% include 'casino/includes_en/casino-asside.html' %}
-                    <div>
-                            {% if promoen.promo == 'betsson' %}
-                                {% review_promo_betsson %}
-                            {% endif %}
-
-                            {% if promoen.promo == 'betsafe' %}
-                                {% review_promo_betsafe %}
-                            {% endif %}
-
-                            {% if promoen.promo == 'wishmaker' %}
-                                {% review_promo_wishmaker %}
-                            {% endif %}
-
-                            {% if promoen.promo == 'bitstarz' %}
-                                {% review_promo_bitstarz %}
-                            {% endif %}
-
-                            {% if promoen.promo == 'pokerstars' %}
-                                {% review_promo_pokerstars %}
-                            {% endif %}
-
-                            {% if promoen.promo == 'william' %}
-                                {% review_promo_william %}
-                            {% endif %}
-
-                            {% if promoen.promo == 'snabbis' %}
-                                {% review_promo_snabbis %}
-                            {% endif %}
-
-                            {% if promoen.promo == 'energy' %}
-                                {% review_promo_energy %}
-                            {% endif %}
-
-                            {% if promoen.promo == 'sportsbet' %}
-                                {% review_promo_sportsbet %}
-                            {% endif %}
-                    </div>
+                    {% include 'casino-asside.html' %}
                 </aside>
-
-
-</div>
-
-
-
-
+    </div>
 
 {% endblock content %}
 
 {% block script %}
-<script async src="{% static 'js/progressive-image.js' %}"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script  src="{% static 'js/ajaxcomments.min.js' %}"></script>
+    <script async src="{{ url_for('static', filename='js/progressive-image.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script  src="{{ url_for('static', filename='js/ajaxcomments.min.js') }}"></script>
 {% endblock script %}
 
 

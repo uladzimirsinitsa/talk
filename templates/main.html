@@ -27,10 +27,8 @@
 
 
 {% block content %}
-    {% for i in data %}
-        <p>
-            {{ i.title }}
-        </p>
+    {% for promo in data %}
+        <p><a href="{{ url_for('promotions.promo_detail', slug=promo.slug) }}">{{ promo.title }}</a></p>
     {% endfor %}
 {% endblock content %}
 
